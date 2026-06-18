@@ -1,0 +1,213 @@
+@use '@/styles/variables.scss' as *;
+
+.footer {
+	padding-top: var(--space-100);
+	@media (max-width: 996px) {
+		padding-top: calc(var(--space-100) * 3);
+	}
+}
+
+.container {
+	max-width: 1440px;
+	margin-inline: auto;
+	display: flex;
+	flex-direction: column;
+	gap: var(--gap-60);
+
+	@media (max-width: 1140px) {
+		padding-inline: var(--space-15);
+		gap: var(--gap-32);
+	}
+}
+
+// Дисклеймер
+.disclaimer {
+	border-bottom: 1px solid var(--base-gray);
+	padding-bottom: var(--space-60);
+	@media (max-width: 996px) {
+		padding-bottom: var(--space-40);
+	}
+}
+
+.disclaimerToggle {
+	display: flex;
+	align-items: center;
+	gap: var(--gap-x-10);
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 0;
+}
+
+.disclaimerIcon {
+	width: 24px;
+	height: 24px;
+	color: var(--base-white);
+}
+.disclaimerContent {
+	margin-top: var(--space-24);
+	display: flex;
+	flex-direction: column;
+	gap: var(--gap-y-20);
+}
+
+// Основной контент
+.footerContent {
+	display: flex;
+	flex-direction: column;
+}
+
+.footerLeft {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--gap-24);
+	padding-bottom: var(--space-40);
+	border-bottom: 1px solid var(--base-gray);
+	@media (max-width: 996px) {
+		flex-direction: column;
+	}
+}
+
+.dealerInfo {
+	display: flex;
+	flex-direction: column;
+	gap: var(--gap-y-40);
+	@media (max-width: 996px) {
+		padding-top: var(--space-40);
+	}
+}
+
+.footerActions {
+	display: flex;
+	flex-direction: column;
+	gap: var(--gap-x-40);
+	align-self: start;
+	@media (max-width: 996px) {
+		width: 100%;
+	}
+}
+
+.footerContacts {
+	display: flex;
+	gap: var(--gap-y-40);
+
+	@media (max-width: 996px) {
+		flex-direction: column;
+		align-items: self-start;
+	}
+}
+
+.phoneLink {
+	text-decoration: none;
+}
+
+.callbackButton {
+	width: fit-content;
+	@media (max-width: 996px) {
+		align-self: stretch;
+		width: 100%;
+	}
+}
+
+.addressBlock {
+	display: flex;
+	align-items: center;
+	gap: var(--gap-x-6);
+	@media (max-width: 996px) {
+	}
+}
+
+.addressIcon {
+	width: 24px;
+	height: 24px;
+	color: var(--base-gray);
+	flex-shrink: 0;
+	margin-top: 4px;
+}
+
+.footerLinks {
+	display: flex;
+	gap: var(--gap-x-40);
+	align-self: end;
+
+	@media (max-width: 996px) {
+		flex-direction: column;
+		align-self: center;
+		gap: var(--gap-y-24);
+	}
+}
+
+.footerLink {
+	display: flex;
+	align-items: center;
+	gap: var(--gap-x-6);
+	text-decoration: none;
+	transition: opacity 0.2s ease;
+	@media (max-width: 996px) {
+		align-self: center;
+	}
+
+	&:hover {
+		opacity: 0.85;
+	}
+
+	.linkIcon {
+		width: 20px;
+		height: 20px;
+		color: var(--base-orange);
+	}
+}
+
+// Юридическая информация
+.legalInfo {
+	display: flex;
+	flex-direction: column;
+	gap: var(--gap-8);
+}
+
+.legalTitle {
+	text-transform: uppercase;
+}
+
+// Нижняя часть
+.footerBottom {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-block: var(--space-20);
+	gap: var(--gap-x-24);
+
+	@media (max-width: 996px) {
+		flex-direction: column-reverse;
+		gap: var(--gap-y-20);
+	}
+}
+
+.bottomLinks {
+	display: flex;
+	gap: var(--gap-x-40);
+
+	@media (max-width: 996px) {
+		width: 100%;
+		gap: 0;
+		justify-content: space-between;
+	}
+}
+
+.bottomLink {
+	color: var(--base-gray);
+	text-decoration: none;
+	font-size: var(--text-xs);
+	transition: color 0.2s ease;
+
+	&:hover {
+		color: var(--base-white);
+	}
+}
+
+.footerInfo {
+	@media (max-width: 996px) {
+		align-self: flex-start;
+	}
+}

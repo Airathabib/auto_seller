@@ -1,0 +1,37 @@
+@use '@/styles/variables.scss' as *;
+
+.advantages {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: var(--gap-24);
+	padding-top: var(--space-60);
+
+	@media (max-width: 996px) {
+		grid-template-columns: 1fr;
+		gap: var(--gap-y-10);
+	}
+}
+
+.advantageCard {
+	display: flex;
+	gap: var(--gap-x-20);
+	padding: var(--space-20);
+	border-radius: 8px;
+	border: 1px solid var(--base-gray);
+	@media (max-width: 996px) {
+		align-items: center;
+	}
+}
+
+.icon {
+	width: 44px;
+	height: 44px;
+	color: var(--base-white);
+	flex-shrink: 0;
+}
+
+.content {
+	display: flex;
+	flex-direction: column;
+	gap: var(--gap-y-14);
+}

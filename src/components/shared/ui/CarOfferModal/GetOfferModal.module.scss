@@ -1,0 +1,149 @@
+@use '@/styles/variables.scss' as *;
+
+.modal {
+	position: fixed;
+	inset: 0;
+	background-color: rgba(0, 0, 0, 0.8);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 10000;
+	padding: var(--space-24);
+	@media (max-width: 996px) {
+		padding: var(--space-24) var(--space-15);
+	}
+}
+
+.modalContent {
+	position: relative;
+	background-color: var(--base-black-1);
+	padding: var(--space-40) var(--space-28);
+	border-radius: var(--radius);
+	max-width: 520px;
+	width: 100%;
+	max-height: 90vh;
+	overflow-y: auto;
+	@media (max-width: 996px) {
+		padding: var(--space-40) var(--space-15);
+	}
+}
+
+.closeButton {
+	position: absolute;
+	top: var(--space-20);
+	right: var(--space-20);
+	background: none;
+	width: 24px;
+	height: 4px;
+	border: none;
+	cursor: pointer;
+	padding: 0;
+	color: var(--base-white);
+	transition: opacity 0.2s ease;
+
+	&:hover {
+		opacity: 0.85;
+	}
+}
+
+.header {
+	margin-bottom: var(--space-32);
+}
+
+.title {
+	margin-bottom: var(--space-12);
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+	padding-inline: var(--space-40);
+	gap: var(--gap-24);
+	@media (max-width: 996px) {
+		padding: 0;
+	}
+}
+
+.formGroup {
+	display: flex;
+	flex-direction: column;
+	gap: var(--gap-y-8);
+}
+
+.label {
+	font-size: var(--text-sm);
+	color: var(--base-gray);
+}
+
+.input {
+	width: 100%;
+	padding: var(--space-12) var(--space-16);
+	background-color: var(--base-black-1);
+	border: 2px solid var(--base-black-2);
+	border-radius: var(--radius);
+	color: var(--base-white);
+	font-size: var(--text-base);
+	font-family: var(--font-sans);
+	transition: border-color 0.2s ease;
+
+	&:focus {
+		outline: none;
+		border-color: var(--base-orange);
+	}
+
+	&::placeholder {
+		color: var(--base-gray);
+	}
+}
+
+.submitButton {
+	width: 100%;
+}
+
+.checkboxLabel {
+	display: flex;
+	align-items: center;
+	gap: var(--gap-x-10);
+	cursor: pointer;
+	user-select: none;
+}
+
+.checkbox {
+	position: absolute;
+	opacity: 0;
+	width: 0;
+	height: 0;
+
+	&:checked + .checkmark {
+		background-color: var(--base-orange);
+		border-color: var(--base-orange);
+
+		&::after {
+			display: block;
+		}
+	}
+}
+
+.checkmark {
+	position: relative;
+	width: 16px;
+	height: 16px;
+	min-width: 16px;
+	border: 2px solid var(--base-gray);
+	border-radius: 4px;
+	background-color: transparent;
+	transition: all 0.2s ease;
+
+	&::after {
+		content: '';
+		position: absolute;
+		display: none;
+		left: 4px;
+		top: 1px;
+		width: 4px;
+		height: 8px;
+		border: solid var(--base-black);
+		border-width: 0 2px 2px 0;
+		transform: rotate(45deg);
+	}
+}

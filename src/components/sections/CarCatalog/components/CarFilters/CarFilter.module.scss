@@ -1,0 +1,67 @@
+@use '@/styles/variables.scss' as *;
+
+.filters {
+	display: grid;
+	grid-auto-flow: column;
+	grid-auto-columns: 1fr;
+	gap: var(--gap-24);
+
+	@media (max-width: 996px) {
+		grid-auto-flow: row;
+		grid-auto-columns: auto;
+		grid-template-columns: 1fr;
+		gap: var(--gap-y-20);
+	}
+}
+
+.filterGroup {
+	display: flex;
+	flex-direction: column;
+	gap: var(--gap-y-6);
+	width: 100%;
+}
+
+.label {
+	font-size: var(--text-sm);
+	font-weight: var(--weight-medium);
+	color: var(--base-gray);
+}
+
+.select {
+	width: 100%;
+	padding: var(--space-12) var(--space-16);
+	background-color: var(--base-black-1);
+	border: 1px solid var(--base-white);
+	border-radius: var(--radius);
+	color: var(--base-white);
+	font-size: var(--text-base);
+	font-family: var(--font-sans);
+	cursor: pointer;
+	transition: border-color 0.2s ease;
+
+	&:hover {
+		border-color: var(--base-gray);
+	}
+
+	&:focus {
+		outline: none;
+		border-color: var(--base-orange);
+	}
+
+	&:disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+	}
+
+	// Стилизация стрелки
+	appearance: none;
+	background-repeat: no-repeat;
+	background-position: right 16px center;
+	padding-right: 48px;
+
+	// Для темных опций
+	option {
+		background-color: var(--base-black-1);
+		color: var(--base-white);
+	}
+}

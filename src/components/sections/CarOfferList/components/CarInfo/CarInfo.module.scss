@@ -1,0 +1,56 @@
+@use '@/styles/variables.scss' as *;
+
+.carInfo {
+	display: flex;
+	flex-direction: column;
+	width: 420px;
+	gap: var(--gap-y-40);
+
+	@media (max-width: 996px) {
+		width: 100%;
+		gap: var(--gap-y-24);
+	}
+}
+
+.header {
+	display: flex;
+	flex-direction: column;
+	gap: var(--gap-y-12);
+	max-width: 370px;
+
+	width: 100%;
+	@media (max-width: 996px) {
+		max-width: 100%;
+	}
+}
+
+.attentionBlock {
+	width: 264px;
+	display: flex;
+	gap: var(--gap-x-8);
+	padding: var(--space-6) var(--space-10);
+	border-radius: var(--radius);
+	background-color: var(--base-red);
+
+	@media (max-width: 996px) {
+		width: 100%;
+		max-width: 100%;
+	}
+}
+
+.attentionIcon {
+	color: var(--base-white);
+	width: 18px;
+	height: 18px;
+}
+
+.buttons {
+	display: flex;
+	flex-direction: column;
+	gap: var(--gap-y-10);
+	width: 100%;
+}
+
+.primaryBtn {
+	width: 100%;
+}

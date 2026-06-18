@@ -1,0 +1,147 @@
+@use '@/styles/variables.scss' as *;
+
+.carOffer {
+	padding-block: var(--space-80);
+	background-color: var(--base-black-1);
+
+	&[data-reversed='true'] {
+		background-color: var(--base-black-2);
+	}
+	@media (max-width: 1440px) {
+		padding-block: var(--space-40);
+		padding-inline: var(--space-15);
+	}
+}
+
+.container {
+	max-width: 1440px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	gap: var(--gap-y-30);
+
+	@media (max-width: 996px) {
+		gap: var(--gap-y-24);
+	}
+}
+
+.topSection {
+	display: grid;
+	grid-template-columns: 420px 1fr;
+	gap: var(--gap-24);
+	align-items: start;
+
+	// Десктоп: reversed
+	&[data-reversed='true'] {
+		grid-template-columns: 1fr 420px;
+
+		.leftColumn {
+			order: 2;
+		}
+
+		.rightColumn {
+			order: 1;
+		}
+	}
+
+	@media (max-width: 996px) {
+		display: flex;
+		flex-direction: column;
+		gap: var(--gap-24);
+
+		.rightColumn {
+			order: 1;
+		}
+
+		.leftColumn {
+			order: 2;
+		}
+	}
+}
+
+.leftColumn,
+.rightColumn {
+	display: flex;
+	flex-direction: column;
+	gap: var(--gap-24);
+}
+
+.carWrapper {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	min-height: 400px;
+
+	@media (max-width: 996px) {
+		flex-direction: column;
+		min-height: auto;
+	}
+}
+
+.carImage {
+	max-width: 100%;
+	width: 100%;
+	max-width: 800px;
+	height: auto;
+	object-fit: contain;
+	@media (max-width: 420px) {
+		width: 100%;
+	}
+}
+
+.sticker {
+	position: absolute;
+	top: 0;
+	right: 150px;
+	width: 150px;
+	background-color: var(--base-orange);
+	padding: var(--space-6) var(--space-14);
+	border-radius: var(--radius-sm);
+	transform: rotate(15deg);
+
+	@media (max-width: 996px) {
+		width: 100px;
+		padding: var(--space-4) var(--space-8);
+		top: -20px;
+		right: 20px;
+	}
+}
+
+.features {
+	display: flex;
+	align-items: center;
+	gap: var(--gap-24);
+	width: 100%;
+	@media (max-width: 996px) {
+		flex-direction: column;
+		gap: var(--gap-y-4);
+	}
+}
+
+.feature {
+	display: flex;
+	align-items: center;
+	justify-content: start;
+	flex: 1;
+	min-height: 58px;
+	gap: var(--gap-x-14);
+	padding: var(--space-12) var(--space-16);
+	background-color: var(--base-black);
+	border-radius: var(--radius);
+	width: 100%;
+	svg {
+		width: 30px;
+		height: 30px;
+		color: var(--base-orange);
+		flex-shrink: 0;
+	}
+	@media (max-width: 996px) {
+		width: 100%;
+	}
+}
+
+.featureText {
+	width: 100%;
+}

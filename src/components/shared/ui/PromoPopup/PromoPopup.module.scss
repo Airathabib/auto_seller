@@ -1,0 +1,41 @@
+@use '@/styles/variables.scss' as *;
+
+.overlay {
+	position: fixed;
+	inset: 0;
+	background-color: rgba(0, 0, 0, 0.9);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 10000;
+	padding: var(--space-15);
+	animation: fadeIn 0.3s ease;
+}
+
+.popup {
+	position: relative;
+	max-width: 1440px;
+	width: 100%;
+	overflow-y: auto;
+	border-radius: var(--radius);
+	display: flex;
+	flex-direction: column;
+}
+
+.imageWrapper {
+	position: relative;
+	width: 100%;
+
+	aspect-ratio: 16 / 9;
+	overflow: hidden;
+
+	@media (max-width: 996px) {
+		aspect-ratio: 9 / 16;
+		min-height: 300px;
+	}
+}
+
+.image {
+	object-fit: contain;
+	object-position: center;
+}

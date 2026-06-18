@@ -1,0 +1,214 @@
+@use '@/styles/variables.scss' as *;
+
+.gallery {
+	display: flex;
+	flex-direction: column;
+	gap: var(--gap-16);
+}
+
+.thumbnails {
+	display: flex;
+	align-items: center;
+	gap: var(--gap-24);
+}
+
+.thumbnail {
+	position: relative;
+	width: 100%;
+	min-height: 200px;
+	border-radius: var(--radius);
+	overflow: hidden;
+	border: 2px solid transparent;
+	cursor: pointer;
+	transition: border-color 0.2s ease;
+}
+
+.thumbImage {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+// ==================== MODAL ====================
+
+.modal {
+	position: fixed;
+	inset: 0;
+	z-index: 1000;
+	background-color: rgba(0, 0, 0, 0.95);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: var(--space-24);
+	animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+.modalContent {
+	position: relative;
+	width: 100%;
+	max-width: 1200px;
+	max-height: 90vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.closeButton {
+	position: fixed;
+	top: var(--space-20);
+	right: var(--space-24);
+	z-index: 1001;
+	width: 56px;
+	height: 56px;
+	border-radius: 50%;
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: background-color 0.2s ease;
+	padding: 0;
+
+	&:hover {
+		background-color: var(--base-black-2);
+	}
+}
+
+.closeIcon {
+	color: var(--base-white);
+	width: 24px;
+	height: 24px;
+}
+
+.mainImageWrapper {
+	position: relative;
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	aspect-ratio: 16 / 9;
+	border-radius: var(--radius);
+	overflow: hidden;
+	margin-bottom: var(--space-10);
+	@media (max-width: 996px) {
+		height: 400px;
+		max-height: 50vh;
+	}
+}
+
+.mainImage {
+	object-fit: cover;
+}
+
+.modalThumbnails {
+	display: flex;
+	width: 100%;
+	justify-content: stretch;
+	gap: var(--gap-24);
+}
+
+.modalThumbnail {
+	position: relative;
+	flex: 1;
+	height: 169px;
+	border-radius: var(--radius);
+	overflow: hidden;
+	border: 2px solid transparent;
+	cursor: pointer;
+	transition: border-color 0.2s ease;
+	background-color: var(--base-black-1);
+	padding: 0;
+
+	&.active {
+		border-color: var(--base-gray);
+	}
+
+	&:hover {
+		border-color: var(--base-gray);
+	}
+}
+
+.modalThumbImage {
+	object-fit: cover;
+}
+
+// ==================== МОБИЛЬНАЯ КАРУСЕЛЬ ====================
+
+@mixin carousel {
+	display: flex;
+	flex-wrap: nowrap;
+	gap: var(--gap-x-10);
+	overflow-x: auto;
+	overflow-y: hidden;
+	scroll-snap-type: x mandatory;
+	scroll-behavior: smooth;
+	-webkit-overflow-scrolling: touch;
+	padding-bottom: var(--space-8);
+	scrollbar-width: none;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+
+	> * {
+		flex: 0 0 auto;
+		width: 120px;
+		height: 100px;
+		scroll-snap-align: start;
+	}
+}
+
+@media (max-width: 996px) {
+	.thumbnails {
+		@include carousel;
+	}
+
+	.thumbnail {
+		min-height: auto;
+	}
+
+	.modalContent {
+		height: 95vh;
+	}
+
+	.modalThumbnails {
+		@include carousel;
+		justify-content: flex-start;
+	}
+
+	.modalThumbnail {
+		height: 100px;
+	}
+}
+
+@media (max-width: 768px) {
+	.modal {
+		padding: var(--space-16);
+	}
+
+	.modalContent {
+		height: 100vh;
+		max-height: 100vh;
+	}
+
+	.closeButton {
+		top: var(--space-16);
+		right: var(--space-16);
+		width: 40px;
+		height: 40px;
+
+		svg {
+			width: 20px;
+			height: 20px;
+		}
+	}
+}

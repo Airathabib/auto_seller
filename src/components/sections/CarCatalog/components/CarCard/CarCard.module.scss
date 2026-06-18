@@ -1,0 +1,140 @@
+@use '@/styles/variables.scss' as *;
+
+.carCard {
+	display: grid;
+	grid-template-columns: 420px 1fr;
+	gap: var(--gap-24);
+	border: 1px solid var(--base-gray);
+	border-radius: var(--radius);
+	align-items: start;
+}
+
+.carImage {
+	grid-column: 1;
+	width: 100%;
+	height: 237px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	img {
+		max-width: 100%;
+		height: auto;
+		object-fit: contain;
+	}
+}
+
+.carInfo {
+	grid-column: 2;
+	display: grid;
+	padding-top: var(--space-24);
+	padding-right: var(--space-24);
+	grid-template-columns: 1fr 320px;
+	grid-template-rows: auto auto;
+	gap: var(--gap-24);
+}
+
+.carTextBlock {
+	grid-column: 1;
+	grid-row: 1;
+}
+
+.carEngine {
+	margin-bottom: var(--space-16);
+}
+
+.priceBlock {
+	display: flex;
+	align-items: baseline;
+	gap: var(--gap-12);
+	margin-top: var(--space-8);
+}
+
+.oldPrice {
+	text-decoration: line-through;
+	color: var(--base-gray);
+}
+
+.currentPrice {
+	font-size: var(--text-2xl);
+	font-weight: var(--weight-bold);
+	color: var(--base-white);
+}
+
+.carActions {
+	grid-column: 2;
+	grid-row: 1 / span 2;
+	display: flex;
+	flex-direction: column;
+	gap: var(--gap-y-12);
+	align-self: start;
+}
+
+.carCardBtn {
+	width: 100%;
+	height: 60px;
+}
+
+.benefits {
+	grid-column: 1 / span 2;
+	grid-row: 2;
+	display: flex;
+	align-items: center;
+	gap: var(--gap-x-24);
+}
+
+.benefit {
+	display: flex;
+	align-items: center;
+	gap: var(--gap-x-10);
+}
+
+.benefitIcon {
+	width: 24px;
+	height: 24px;
+	color: var(--base-orange);
+	flex-shrink: 0;
+}
+
+// ==================== АДАПТИВ ====================
+@media (max-width: 996px) {
+	.carCard {
+		grid-template-columns: 1fr;
+	}
+
+	.carImage {
+		grid-column: 1;
+		height: 200px;
+	}
+
+	.carInfo {
+		grid-column: 1;
+		grid-template-columns: 1fr;
+		grid-template-rows: auto auto auto;
+		padding-left: var(--space-12);
+		padding-right: var(--space-12);
+		padding-bottom: var(--space-15);
+	}
+
+	.carTextBlock,
+	.carActions,
+	.benefits {
+		grid-column: 1;
+	}
+
+	//  Порядок на мобильном:
+	.carTextBlock {
+		grid-row: 1;
+	}
+
+	.benefits {
+		grid-row: 2;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: var(--gap-y-14);
+	}
+
+	.carActions {
+		grid-row: 3;
+	}
+}

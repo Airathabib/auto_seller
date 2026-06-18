@@ -1,0 +1,64 @@
+@use '@/styles/variables.scss' as *;
+
+.timerCircle {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 90px;
+	height: 90px;
+
+	@media (max-width: 996px) {
+		width: 70px;
+		height: 70px;
+	}
+}
+
+.svg {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.backgroundCircle {
+	stroke: var(--timer-border);
+}
+
+.progressCircle {
+	// Десктоп: оранжевый
+	stroke: var(--base-orange);
+	transition: stroke-dashoffset 1s linear;
+
+	// Мобильный: белый
+	@media (max-width: 996px) {
+		stroke: var(--base-white);
+	}
+}
+
+.content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	z-index: 1;
+}
+
+.value {
+	font-size: var(--text-2xl);
+	font-weight: var(--weight-bold);
+	color: var(--base-white);
+	line-height: 1;
+
+	@media (max-width: 996px) {
+		font-size: var(--text-xl);
+	}
+}
+
+.label {
+	font-size: var(--text-xs);
+	color: var(--base-gray);
+	margin-top: 4px;
+
+	@media (max-width: 996px) {
+		font-size: 10px;
+	}
+}

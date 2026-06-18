@@ -1,0 +1,236 @@
+.header {
+	width: 100%;
+	position: sticky;
+	top: 0;
+	z-index: 1000;
+	background-color: var(--base-black-1);
+	backdrop-filter: blur(10px);
+}
+
+.container {
+	width: 100%;
+	max-width: 1440px;
+	margin: 0 auto;
+	padding-top: var(--space-10);
+	padding-bottom: var(--space-10);
+	display: grid;
+	grid-template-columns: auto 1fr;
+	align-items: start;
+	gap: var(--gap-x-32);
+	@media (max-width: 1140px) {
+		padding-inline: var(--space-15);
+	}
+}
+
+.logoLink {
+	display: flex;
+	align-items: center;
+	height: 100%;
+	text-decoration: none;
+
+	transition: opacity 0.2s ease;
+	flex-shrink: 0;
+
+	&:hover {
+		opacity: 0.85;
+	}
+}
+
+.logo {
+	width: 54px;
+	padding: 0;
+	margin: 0;
+	flex-shrink: 0;
+	grid-row: 1 / -1;
+	align-self: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.headerWrapper {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	width: 100%;
+	min-width: 0;
+	gap: var(--gap-10);
+}
+
+.headerWrapperTop {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	padding-bottom: var(--space-10);
+	border-bottom: 1px solid var(--base-gray);
+}
+
+.wrapperTopAddress {
+	display: flex;
+	align-items: center;
+}
+
+.adressPin {
+	width: 20px;
+	height: 20px;
+	color: var(--base-gray);
+	flex-shrink: 0;
+}
+
+.wrapperTopActions {
+	display: flex;
+	align-items: center;
+	gap: var(--gap-24);
+
+	.servise,
+	.testdrive {
+		display: flex;
+		align-items: center;
+		gap: var(--gap-x-6);
+		text-decoration: none;
+		color: var(--base-black-1);
+		transition: opacity 0.2s ease;
+
+		&:hover {
+			opacity: 0.7;
+		}
+	}
+}
+
+.actionIcon {
+	color: var(--base-orange);
+}
+
+.headerWrapperBottom {
+	padding-top: var(--section-padding-x-10);
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.bottomTitle {
+	display: flex;
+	align-items: center;
+	gap: 0;
+}
+
+.divider {
+	display: block;
+	width: 1px;
+	height: 30px;
+	background-color: var(--base-gray);
+	margin-inline: 20px;
+	flex-shrink: 0;
+	opacity: 0.6;
+}
+
+.wrapperBottomActions {
+	display: flex;
+	align-items: center;
+	gap: var(--gap-40);
+}
+
+// === Иконка телефона (для мобильных) ===
+.phoneIcon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--base-white);
+	padding: var(--space-8);
+	transition: opacity 0.2s ease;
+
+	svg {
+		width: 24px;
+		height: 24px;
+		display: block;
+	}
+
+	&:hover {
+		opacity: 0.7;
+	}
+}
+
+// === БУРГЕР-МЕНЮ ===
+.burger {
+	display: none;
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: var(--space-8);
+	color: var(--base-white);
+	flex-shrink: 0;
+	transition: opacity 0.2s ease;
+
+	svg {
+		width: 24px;
+		height: 24px;
+		display: block;
+	}
+
+	&:hover {
+		opacity: 0.7;
+	}
+}
+
+// === БРЕЙКПОИНТ 996px ===
+@media (max-width: 996px) {
+	// Скрываем верхнюю часть (адрес, сервис, тест-драйв)
+	.headerWrapperTop {
+		display: none;
+	}
+
+	// Упрощаем нижнюю часть
+	.headerWrapperBottom {
+		padding-top: 0;
+	}
+
+	// Заголовок в две строки
+	.bottomTitle {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: var(--gap-4);
+	}
+
+	// Убираем divider
+	.divider {
+		display: none;
+	}
+
+	// Показываем бургер + уменьшаем gap между телефоном и бургером
+	.burger {
+		display: block;
+	}
+
+	.wrapperBottomActions {
+		gap: var(--gap-x-14);
+	}
+}
+
+// === МОБИЛЬНЫЙ БРЕЙКПОИНТ (375px-768px) ===
+@media (max-width: 768px) {
+	.container {
+		gap: var(--gap-x-10);
+	}
+
+	.logo {
+		width: 40px;
+	}
+
+	.phoneIcon {
+		padding: 0;
+		svg {
+			width: 20px;
+			height: 20px;
+		}
+	}
+
+	.burger {
+		padding: 0;
+		svg {
+			width: 20px;
+			height: 20px;
+		}
+	}
+}

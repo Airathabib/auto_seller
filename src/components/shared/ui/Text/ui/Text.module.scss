@@ -1,0 +1,59 @@
+@use '@/styles/variables.scss' as *;
+
+.text {
+	word-break: break-word;
+	transition: color 0.2s ease;
+	font-family: var(--font-sans);
+
+	&.text_title {
+		font-size: var(--text-2xl);
+		font-weight: var(--weight-bold);
+		color: var(--base-black-1);
+	}
+
+	&.text_text {
+		font-size: var(--text-base);
+		font-weight: var(--weight-regular);
+		color: var(--base-black);
+	}
+
+	&.text_inherit {
+		color: inherit;
+	}
+
+	&.text_truncate {
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	&.clamp-2,
+	&.clamp-3 {
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+
+	&.clamp-2 {
+		line-clamp: 2;
+		-webkit-line-clamp: 2;
+	}
+
+	&.clamp-3 {
+		line-clamp: 3;
+		-webkit-line-clamp: 3;
+	}
+}
+
+:global(.contactItemSelected) .text,
+:global(.chatItemActive) .text {
+	color: var(--base-white);
+
+	&.text_title {
+		color: var(--base-white);
+	}
+
+	&.text_text {
+		color: var(--base-white);
+	}
+}

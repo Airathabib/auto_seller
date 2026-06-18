@@ -1,0 +1,41 @@
+.bookingOffer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding-top: var(--space-100);
+	gap: var(--gap-y-40);
+	@media (max-width: 1440px) {
+		padding-top: var(--space-60);
+		gap: var(--gap-y-20);
+	}
+}
+
+.title {
+	text-align: center;
+}
+
+.carModels {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: var(--gap-24);
+}
+
+.carLink {
+	transition: transform 0.2s ease;
+	&:hover {
+		transform: scale(1.05);
+	}
+}
+.imageWrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
+
+.carModel {
+	text-align: center;
+}

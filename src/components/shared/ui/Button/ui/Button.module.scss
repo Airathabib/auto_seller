@@ -1,0 +1,154 @@
+@use '@/styles/variables.scss' as *;
+
+.button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: var(--gap-10);
+	cursor: pointer;
+	border: none;
+	border-radius: 8px;
+	font-family: var(--font-sans);
+	font-weight: var(--weight-medium);
+	height: 52px;
+	padding-inline: var(--space-24);
+	transition:
+		0.15s ease background-color,
+		0.15s ease color,
+		0.15s ease border-color;
+
+	.icon {
+		display: flex;
+		align-items: center;
+		color: var(--icon-color, currentColor);
+	}
+
+	// === Размеры ===
+	&.size_l {
+		width: 226px;
+		padding-inline: var(--space-30);
+		@media (max-width: 996px) {
+			width: 100%;
+			max-width: 100%;
+		}
+	}
+
+	&.size_m {
+		width: fit-content;
+		padding-inline: var(--space-20);
+
+		@media (max-width: 996px) {
+			display: flex;
+			width: 100%;
+			max-width: 100%;
+		}
+	}
+
+	&.size_s {
+		width: fit-content;
+		padding-inline: var(--space-16);
+	}
+
+	// === Иконки ===
+	&.withIcons {
+		padding-inline: var(--space-20);
+	}
+
+	.icon {
+		display: flex;
+		align-items: center;
+		svg {
+			width: 20px;
+			height: 20px;
+			display: block;
+		}
+	}
+
+	.label {
+		font-size: var(--text-base);
+		line-height: 1.2;
+	}
+
+	// === Layout ===
+	&.layoutVertical {
+		flex-direction: column;
+		gap: var(--gap-8);
+		text-align: center;
+	}
+
+	&.layoutIconRight {
+		flex-direction: row-reverse;
+	}
+
+	// === Варианты ===
+	&.primary {
+		background-color: var(--base-orange);
+		color: var(--base-black-1);
+		--icon-color: var(--base-black);
+		&:hover:not(.disabled) {
+			background-color: var(--hover-orange);
+		}
+	}
+
+	&.outline {
+		background: transparent;
+		border: 2px solid var(--border-color, var(--base-orange));
+		color: var(--text-color, var(--base-white));
+		--icon-color: var(--text-color, var(--base-white));
+
+		&:hover:not(.disabled) {
+			background-color: var(--hover-black);
+			border-color: var(--border-color, var(--base-orange));
+		}
+	}
+
+	&.text {
+		background: transparent;
+		border: none;
+		color: var(--base-orange);
+		padding-inline: 0;
+		&:hover:not(.disabled) {
+			opacity: 0.85;
+		}
+	}
+
+	&.image {
+		background: transparent;
+		border: none;
+		outline: none;
+		padding: 0;
+		margin: 0;
+		width: auto;
+		height: auto;
+		min-height: 0;
+		color: var(--base-white);
+		--icon-color: var(--base-white);
+		border-radius: 0;
+		display: block;
+
+		&:hover:not(.disabled) {
+			opacity: 0.85;
+		}
+
+		&.size_l,
+		&.size_m,
+		&.size_s {
+			width: auto;
+			height: auto;
+			padding: 0;
+		}
+
+		.label {
+			display: contents;
+			font-size: inherit;
+			line-height: inherit;
+		}
+	}
+
+	&.disabled {
+		background-color: var(--base-gray);
+		color: var(--base-black);
+		cursor: not-allowed;
+		opacity: 0.6;
+	}
+}
