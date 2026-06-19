@@ -17,7 +17,7 @@ export default function Tank500Page() {
 		<>
 			<PromoPopup
 				imageSrc='/images/banner/tank500/Tank500Desktop.webp'
-				imageMobileSrc='/images/banner/tank500/Tank500mobile.webp'
+				imageMobileSrc='/images/banner/tank500/Tank500Mobile.webp'
 				modelName='TANK 500'
 				autoCloseDelay={3000} // 3 секунды
 			/>

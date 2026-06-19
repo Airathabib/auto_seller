@@ -8,7 +8,7 @@ export default function HomePage() {
 	return (
 		<>
 			<Hero
-				title='TANK 500'
+				title='TANK AUTO'
 				subtitle='Улучшим любые условия'
 				description='Осталось всего 5 автомобилей!'
 				imageSrc='/images/hero/hero.webp'

@@ -3,7 +3,7 @@
 .carOffer {
 	padding-block: var(--space-80);
 	background-color: var(--base-black-1);
-
+	overflow: hidden;
 	&[data-reversed='true'] {
 		background-color: var(--base-black-2);
 	}
@@ -73,6 +73,7 @@
 	align-items: center;
 	width: 100%;
 	min-height: 400px;
+	overflow: visible;
 
 	@media (max-width: 996px) {
 		flex-direction: column;
